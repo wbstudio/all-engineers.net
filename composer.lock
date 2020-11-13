@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "43d0f2a5ca6dd5615663048ae0829c46",
+    "content-hash": "e274b8d0807754002e434445e4aeb4bb",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -922,6 +922,59 @@
                 "url"
             ],
             "time": "2020-09-30T07:37:11+00:00"
+        },
+        {
+            "name": "haruncpi/laravel-simple-filemanager",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/haruncpi/laravel-simple-filemanager.git",
+                "reference": "dc5465e81cc65430d3334f92f7a422fcc2274c48"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/haruncpi/laravel-simple-filemanager/zipball/dc5465e81cc65430d3334f92f7a422fcc2274c48",
+                "reference": "dc5465e81cc65430d3334f92f7a422fcc2274c48",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Haruncpi\\LaravelSimpleFilemanager\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Haruncpi\\LaravelSimpleFilemanager\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "cc-by-nc-4.0"
+            ],
+            "authors": [
+                {
+                    "name": "MD.HARUN-UR-RASHID",
+                    "email": "harun.cox@gmail.com"
+                }
+            ],
+            "description": "A simple filemanager for Laravel",
+            "keywords": [
+                "Media Manager",
+                "Simple",
+                "file manager",
+                "filemanager",
+                "laravel"
+            ],
+            "time": "2020-05-18T17:06:48+00:00"
         },
         {
             "name": "jaybizzle/crawler-detect",

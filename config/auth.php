@@ -46,6 +46,14 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+        'administers' => [
+            'driver' => 'session',
+            'provider' => 'administers',
+        ],
+        'members' => [
+            'driver' => 'session',
+            'provider' => 'members',
+        ],
     ],
 
     /*
@@ -75,6 +83,14 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+        'administers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Administer::class,
+        ],
+        'members' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Member::class,
+        ],
     ],
 
     /*
