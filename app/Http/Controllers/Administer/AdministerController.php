@@ -1,24 +1,23 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Administer;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class MemberController extends Controller
+class AdministerController extends Controller
 {
     public function showLoginForm() {
 
-        return view('member.login');
+        return view('administer.login');
 
     }
 
     public function login(Request $request) {
 
         $credentials = $request->only(['email', 'password']);
-        $guard = "members";
+        $guard = "administers";
         if(\Auth::guard($guard)->attempt($credentials)) {
-
-            return redirect($guard .'/dashboard'); // ログインしたらリダイレクト
+            return redirect("administer/dashboard"); // ログインしたらリダイレクト
 
         }
 

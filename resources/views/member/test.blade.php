@@ -7,17 +7,18 @@
     <form method="POST" action="member">
         @csrf
         <div>
-        <textarea id="editor" name="main"></textarea>
-                    <script src="https://cdn.ckeditor.com/4.14.0/full/ckeditor.js"></script>
-                    <script>
-                        window.onload=function(){
-                            CKEDITOR.replace('editor',{
-                                filebrowserBrowseUrl:filemanager.ckBrowseUrl
-                            })
-                        }
-                    </script>
+        <input type="text" name="aaaaaa">
+        <textarea id="editor" class="111" name="main" style="border:3px solid #555;"></textarea>
+        <textarea id="editor" class="111" name="main01" style="border:3px solid #555;"></textarea>
+            <script src="https://cdn.ckeditor.com/4.14.0/full/ckeditor.js"></script>
+            <script>
+                window.onload=function(){
+                    CKEDITOR.replaceAll('111',{
+                        filebrowserBrowseUrl:filemanager.ckBrowseUrl
+                    })
+                }
+            </script>
         </div>
     </form>
 </body>
 </html>
-

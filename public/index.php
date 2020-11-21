@@ -4,6 +4,27 @@ use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
 define('LARAVEL_START', microtime(true));
+/*
+|--------------------------------------------------------------------------
+| responsive
+|--------------------------------------------------------------------------
+|
+*/
+function ua_smt (){
+    $ua = $_SERVER['HTTP_USER_AGENT'];
+    $ua_list = array('iPhone','iPad','iPod','Android');
+    foreach ($ua_list as $ua_smt) {
+        if (strpos($ua, $ua_smt) !== false) {
+            return true;
+        }
+    } return false;
+}
+
+if (ua_smt() == true) {
+    define('BladeType', "sp/");
+} else {
+    define('BladeType', "pc/");
+}
 
 /*
 |--------------------------------------------------------------------------

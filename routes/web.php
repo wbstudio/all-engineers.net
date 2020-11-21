@@ -24,15 +24,15 @@ Route::get('/', function () {
 
 // Memberページ
 // ログイン
-Route::get('member', [\App\Http\Controllers\MemberController::class, 'showLoginForm']);
-Route::post('member', [\App\Http\Controllers\MemberController::class, 'login']);
+Route::get('member', [\App\Http\Controllers\Member\MemberController::class, 'showLoginForm']);
+Route::post('member', [\App\Http\Controllers\Member\MemberController::class, 'login']);
 // ログアウト
-Route::get('member/logout', [\App\Http\Controllers\MemberController::class, 'logout']);
+Route::get('member/logout', [\App\Http\Controllers\Member\MemberController::class, 'logout']);
 
 // ログイン後
-Route::prefix('members')->middleware('auth:members')->group(function(){
+Route::prefix('member')->middleware('auth:members')->group(function(){
 
- Route::get('dashboard', function(){ return 'memberログイン完了'; });
+    Route::get('dashboard',  function () {return view('administer.index');});
 
 });
 
@@ -40,16 +40,61 @@ Route::prefix('members')->middleware('auth:members')->group(function(){
 
 // Administerページ
 // ログイン
-Route::get('administer', [\App\Http\Controllers\AdministerController::class, 'showLoginForm']);
-Route::post('administer', [\App\Http\Controllers\AdministerController::class, 'login']);
+Route::get('administer', [\App\Http\Controllers\Administer\AdministerController::class, 'showLoginForm']);
+Route::post('administer', [\App\Http\Controllers\Administer\AdministerController::class, 'login']);
 // ログアウト
-Route::get('administer/logout', [\App\Http\Controllers\AdministerController::class, 'logout']);
+Route::get('administer/logout', [\App\Http\Controllers\Administer\AdministerController::class, 'logout']);
 
 // ログイン後
-Route::prefix('administers')->middleware('auth:administers')->group(function(){
+Route::prefix('administer')->middleware('auth:administers')->group(function(){
+    
+    Route::get('dashboard',  function () {return view('administer.index');});
+    
+    //管理画面-記事
+    Route::group(['prefix' => 'article'], function () {
+        //一覧
+        Route::get('/list', [\App\Http\Controllers\Administer\ArticleController::class, 'getlist'])->name('article_list');
+        //一覧-検索
+        Route::post('/list', [\App\Http\Controllers\Administer\ArticleController::class, 'getlist'])->name('article_list');
+        //一覧-削除
+        Route::post('/delete', [\App\Http\Controllers\Administer\ArticleController::class, 'delete'])->name('article_delete');
+        //wygiwygが2つreplaceできないため問題ページ登録と解説ページを分ける
+        //登録ページ表示
+        Route::get('/registquestion', [\App\Http\Controllers\Administer\ArticleController::class, 'registquestion'])->name('article_regist_question');
+        //登録ページ表示
+        Route::post('/registquestion', [\App\Http\Controllers\Administer\ArticleController::class, 'registquestion'])->name('article_regist_question');
+        //登録ページ表示
+        Route::post('/registanswer', [\App\Http\Controllers\Administer\ArticleController::class, 'registanswer'])->name('article_regist_answer');
+        //登録
+        Route::post('/regist', [\App\Http\Controllers\Administer\ArticleController::class, 'regist']);
+        //編集ページ表示
+        Route::get('/editquestion/{id}', [\App\Http\Controllers\Administer\ArticleController::class, 'editquestion']);
+        //編集ページ表示(戻ってきた時)
+        Route::post('/editquestion/{id}', [\App\Http\Controllers\Administer\ArticleController::class, 'editquestion']);
+        //編集ページ表示
+        Route::post('/editanswer', [\App\Http\Controllers\Administer\ArticleController::class, 'editanswer'])->name('article_edit_answer');;
+        //編集
+        Route::post('/edit', [\App\Http\Controllers\Administer\ArticleController::class, 'edit']);
+    });
 
-    Route::get('dashboard', function(){ return 'administerログイン完了'; });
+    //管理画面-記事
+    Route::group(['prefix' => 'inquery'], function () {
+        //一覧
+        Route::get('/list',function () {return view('administer.index');})->name('inquery_list');
+        // //一覧-検索
+        // Route::post('/list', [\App\Http\Controllers\Administer\ArticleController::class, 'getlist'])->name('article_list');
+        // //一覧-削除
+        // Route::post('/delete', [\App\Http\Controllers\Administer\ArticleController::class, 'delete'])->name('article_delete');
+        // //登録ページ表示
+        // Route::get('/regist', [\App\Http\Controllers\Administer\ArticleController::class, 'registdisp'])->name('article_regist');
+        // //登録
+        // Route::post('/regist', [\App\Http\Controllers\Administer\ArticleController::class, 'regist'])->name('article_regist');
+        // //編集ページ表示
+        // Route::get('/edit/{id}', [\App\Http\Controllers\Administer\ArticleController::class, 'editdisp'])->where('name', '[1-9]+')->name('article_edit');
+        // //編集
+        // Route::post('/edit', [\App\Http\Controllers\Administer\ArticleController::class, 'edit'])->name('article_edit');
+    });
+
+    //test
     Route::get('test', [\App\Http\Controllers\TestController::class, 'form']);
-
-    // Route::get('test', function(){ return 'memberログイン完了'; });
 });

@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use Illuminate\Support\Str;
 
 class Authenticate extends Middleware
 {
@@ -16,11 +17,12 @@ class Authenticate extends Middleware
     {
         if (! $request->expectsJson()) {
             $uri = $request->path();
-            // administerの時
-            if(Str::startsWith($uri, ['administers/'])) {
+            if(Str::startsWith($uri, ['administer/'])) {
                 return 'administer';
+            }else if(Str::startsWith($uri, ['member/'])){
+                return 'member';
             }
-            return route('login');
+            var_dump("else");
         }
     }
 }

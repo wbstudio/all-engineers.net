@@ -85,11 +85,11 @@ return [
         // ],
         'administers' => [
             'driver' => 'eloquent',
-            'model' => App\Models\Administer::class,
+            'model' => App\Models\Administer\Administer::class,
         ],
         'members' => [
             'driver' => 'eloquent',
-            'model' => App\Models\Member::class,
+            'model' => App\Models\Member\Member::class,
         ],
     ],
 
