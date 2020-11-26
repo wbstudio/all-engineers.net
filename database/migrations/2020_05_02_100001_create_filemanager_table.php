@@ -20,7 +20,7 @@ class CreateFilemanagerTable extends Migration
             $table->float('file_size');
             $table->bigInteger('user_id')->unsigned();
             $table->string('absolute_url');
-            $table->json('extra')->nullable();
+            $table->json('extra')->charset(null)->nullable()->change();
             $table->timestamps();
         });
     }
