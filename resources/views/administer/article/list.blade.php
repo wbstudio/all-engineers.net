@@ -1,9 +1,8 @@
 @extends('administer.layout')
 @section('title', 'Page Title')
+@section('head')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="{{ asset('js/administer/article.js') }}"></script>
-@section('head')
-
 @endsection
 
 @section('content')

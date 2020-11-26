@@ -11,7 +11,7 @@ use \App\Models\Administer\Article;
 class ArticleController extends Controller
 {
     //一覧取得
-    public function getlist(Request $request) {
+    public function getList(Request $request) {
 
         $param = null;
         $baseurl = null;
@@ -95,7 +95,7 @@ class ArticleController extends Controller
 
 
     //regist画面表示
-    public function registquestion(Request $request) {
+    public function registQuestion(Request $request) {
         //registanswerのhidden
         $dispKey =[
             "course",
@@ -128,7 +128,7 @@ class ArticleController extends Controller
     }
         
     //regist_answer画面表示
-    public function registanswer(Request $request) {
+    public function registAnswer(Request $request) {
         //registanswerのhidden
         $hiddenKey =[
             "course",
@@ -197,7 +197,7 @@ class ArticleController extends Controller
 
 
     //regist_answer画面表示
-    public function editquestion(Request $request,$id) {
+    public function editQuestion(Request $request,$id) {
 
         if($request->method() == "GET"){
             //DAO
@@ -242,7 +242,7 @@ class ArticleController extends Controller
     }
 
     //regist_answer画面表示
-    public function editanswer(Request $request) {
+    public function editAnswer(Request $request) {
         //registanswerのhidden
         $hiddenKey =[
             "id",
@@ -303,7 +303,6 @@ class ArticleController extends Controller
 
     //regist_answer画面表示
     public function delete(Request $request) {
-        var_dump($request->input('del_id'));
         $update_column = [
             'delete_flag' => 1,
         ];
