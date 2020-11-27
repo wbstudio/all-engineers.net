@@ -58,7 +58,7 @@ class IndexController extends Controller
 
         var_dump($data);
 
-        Mail::to('admin@hoge.co.jp')->send(new registMail($data));
+        Mail::to($request->email)->send(new registMail($data));
 
 
         var_dump("登録完了bladeファイルはまだ作ってない<br>アドレスのリンク踏んだらstatus更新→loginform");
