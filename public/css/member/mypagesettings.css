@@ -1,0 +1,72 @@
+h5{
+    margin-bottom:5px;
+    border-bottom:3px double #ccc;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+tr{
+    border-bottom:1px solid #ccc;
+}
+
+th{
+    vertical-align:middle;
+    width:120px;
+    padding: 15px;
+    background: #eee;
+}
+th.ver_top{
+    vertical-align:top;
+}
+td{
+    padding: 15px;
+}
+
+
+input[type="text"]{
+    width: 100%;
+    height: 40px;
+}
+
+.prefecture{
+    margin-left: 30px;
+    display: inline-block;
+}
+
+.prefecture span{
+    font-size: 12px;
+}
+
+textarea{
+    width: 100%;
+    height: 300px;
+    resize: vertical;
+}
+
+select{
+    width: 30%;
+    height: 40px;
+}
+
+.btn_area{
+    text-align: center;
+    margin:20px;
+}
+
+.btn_area input{
+    padding:15px 60px;
+    color:#FFF;
+    background:linear-gradient(#de0000 0%,#ff5a5a 50%,#de0000 100%);
+    border:1px solid #F00;
+    font-size:16px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn_area input:hover{
+    background:linear-gradient(#cc3939 0%,#ff9a9a 50%,#cc3939 100%);
+}
+
