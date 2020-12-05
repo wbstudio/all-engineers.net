@@ -14,7 +14,7 @@
             <div id=sidenavi class="content">
                 <ol>
                 <a href="{{route('article_list')}}"><li>Top</li></a>
-                <a href="{{route('inquery_list')}}"><li>Top</li></a>
+                <a href="{{route('inquiry_list')}}"><li>Top</li></a>
                     <li>記事管理</li>
                     <li>問い合わせ管理</li>
                     <li>コラム管理</li>

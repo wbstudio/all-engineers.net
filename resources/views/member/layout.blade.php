@@ -16,10 +16,10 @@
                     <li><a href="{{route('member_top')}}">Top Page</a></li>
                     <li><a href="{{route('article_list')}}">Lesson</a></li>
                     <li><a href="{{route('article_list')}}" class="disable">Column</a></li>
-                    <li><a href="{{route('article_list')}}">Inquery</a></li>
+                    <li><a href="{{route('member_inquiry')}}">Inquiry</a></li>
                     <li><a href="{{route('article_list')}}" class="disable">FAQ</a></li>
-                    <li><a href="{{route('article_list')}}" class="disable">Grossary</a></li>
-                    <li><a href="{{route('article_list')}}" class="disable">Job</a></li>
+                    <li><a href="{{route('article_list')}}" class="disable">Glossary</a></li>
+                    <li><a href="{{route('article_list')}}" class="disable">Search Jobs</a></li>
                 </ul>
             </div>
             <div id ="main_area">
@@ -34,7 +34,7 @@
                             <div class="">{{$member->name}}さん<img src="http://all-engineers.net/images/opener.png" class="prof_open"></div>
                         </div>
                         <div class="prof_area">
-                            <a class="prof_link prof_inner" href="{{route('my_page_settings')}}"><img src="http://all-engineers.net/images/pen.png">My page settings</a>
+                            <a class="prof_link prof_inner" href="{{route('my_page_settings')}}"><img src="http://all-engineers.net/images/pen.png">Settings</a>
                             <a class="log_out prof_inner" href="{{route('member_logout')}}"><img src="http://all-engineers.net/images/logout.png">Log out</a>
                         </div>
                     </div>

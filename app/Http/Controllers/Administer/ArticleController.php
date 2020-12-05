@@ -49,19 +49,7 @@ class ArticleController extends Controller
         //DAO
         $mdArticle = new Article();
         $articlesData = $mdArticle->getArticlesList($param);
-        // 文字化
-        $statusConf = config('status');
-        $courseConf = config('course');
-        if(isset($articlesData["data"]) && count($articlesData["data"]) > 0){
-            $articles = $articlesData["data"];
-            foreach($articles as $key => $article){
-                $articles[$key]["str_course"] = $courseConf[$article["course"]]["name"];
-                $articles[$key]["str_status"] = $statusConf[$article["status"]];
-                if(isset($article["classification"])){
-                    $articles[$key]["str_classification"] = $courseConf[$article["course"]]["classification"][$article["classification"]];
-                }
-            }
-        }
+        $articles = $articlesData["data"];
         
         //url
         if(isset($baseurl) && $baseurl != null){

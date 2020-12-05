@@ -59,9 +59,9 @@
          @foreach ($articles as $index => $article)
          <tr>
          <td><a href="editquestion/{{ $article -> id}}">{{$article -> id}}</a></td>
-         <td><div class="status_{{$article -> status}}">{{$article -> str_status}}</div></td>
-         <td>{{$article -> str_course}}</td>
-         <td class="classification">{{$article -> str_classification}}</td>
+         <td><div class="status_{{$article -> status}}">{{config("status.$article->status")}}</div></td>
+         <td>{{config("course.$article->course.name")}}</td>
+         <td class="classification">{{config("course.$article->course.classification.$article->classification")}}</td>
          <td>{{$article -> order}}</td>
          <td class="title"><a href="editquestion/{{ $article -> id}}">{{$article -> title}}</a></td>
          <td><input type="checkbox" value="{{$article -> id}}" name="del_id[]"></td>

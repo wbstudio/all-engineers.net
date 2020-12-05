@@ -36,6 +36,10 @@ Route::prefix('member')->middleware('auth:members')->group(function(){
     Route::get('my_page_settings',  [\App\Http\Controllers\Member\MemberController::class, 'mypageSettings'])->name('my_page_settings');
     //My page settings-updata
     Route::post('my_page_settings',  [\App\Http\Controllers\Member\MemberController::class, 'editmypageSettings'])->name('my_page_settings');
+    //inquiry-display
+    Route::get('inquiry',  [\App\Http\Controllers\Member\MemberController::class, 'inquiryDisp'])->name('member_inquiry');
+    //inquiry-updata
+    Route::post('inquiry',  [\App\Http\Controllers\Member\MemberController::class, 'inquiryUpdata'])->name('member_inquiry');
 
 });
 
@@ -81,9 +85,9 @@ Route::prefix('administer')->middleware('auth:administers')->group(function(){
     });
 
     //管理画面-記事
-    Route::group(['prefix' => 'inquery'], function () {
+    Route::group(['prefix' => 'inquiry'], function () {
         //一覧
-        Route::get('/list',function () {return view('administer.index');})->name('inquery_list');
+        Route::get('/list',function () {return view('administer.index');})->name('inquiry_list');
         // //一覧-検索
         // Route::post('/list', [\App\Http\Controllers\Administer\ArticleController::class, 'getlist'])->name('article_list');
         // //一覧-削除
